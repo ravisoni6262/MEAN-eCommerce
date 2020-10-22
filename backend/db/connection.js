@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
+const config = require('config');
+
+const db = config.get('mongoDBURI');
 
 const connectDB = async () => {
-  try {
-      await mongoose.connect("mongodb+srv://anuja_0109:VWSkZf4K8XBElRnb@cluster0.jbxnm.mongodb.net/mean-test?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
-      console.log("Mongo Db Connected");
-  } catch (error) {
-      console.log("Not connected");
-  }
+    try {
+        await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+        console.log("Mongo Db Connected");
+    } catch (error) {
+        console.log("Not connected");
+        process.exit(1);
+    }
 }
 
 module.exports = connectDB;

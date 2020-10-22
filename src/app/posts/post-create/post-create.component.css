@@ -3,11 +3,12 @@ mat-card {
   padding: 24px;
 }
 
-mat-card-content {
+mat-form-field {
   width: 100%;
+  color: black;
 }
 
-textarea {
+input, textarea {
   width: 100%;
 }
 
